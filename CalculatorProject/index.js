@@ -30,7 +30,6 @@ app.get('/bmi', function(req, res){
 app.post('/bmi', function(req, res){
     
     var heightFeat =  Number(req.body.feets);
-
     var featToInchesHeight = heightFeat*12; 
     var heightInch =  Number(req.body.inches);
     heightInch += featToInchesHeight;
@@ -41,6 +40,6 @@ app.post('/bmi', function(req, res){
 
     console.log("answer: "+ answer);
 
-    res.send("<h1>Your BMI is: {answer}</h1>" );
+    res.send("<h1>Your BMI is:</h1> " +answer);
 
 });
