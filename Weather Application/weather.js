@@ -16,26 +16,35 @@ app.listen(3000, function(){
 
 app.get('/', function(request, response  ){
 
-    
-https.get(url, function(res){
-    //console.log("DATA: " + res);
- 
-    res.on("data", function(data){
-        var weatherInfo = JSON.parse(data);
-        console.log(weatherInfo);
-        console.log(weatherInfo.main.temp);
-        var weather = weatherInfo.weather[0].main;
-        var temp= weatherInfo.main.temp;
-        var place= weatherInfo.name;
-        var icon= weatherInfo.weather[0].icon;
-        console.log("icon:" +icon);
-        response.write("<h1> Weather in "+ place+" is " + weather+"</h1>");
-        //response.write("<h1> Weather in Pakistan is " + weather+"</h1>");
-        response.write("<img src='http://openweathermap.org/img/wn/"+icon+"@2x.png'></img> \nThe temperature is "+temp +" degree celcius");
-        response.send();
-    });
-});
+    response.sendFile(__dirname + "/index.html");
 
 
 //response.send("Thanks for visiting again");
 })
+
+app.post('/', function(request, response){
+
+    response.send("Thanks for sharing");
+
+});
+
+
+    
+// https.get(url, function(res){
+//     //console.log("DATA: " + res);
+ 
+//     res.on("data", function(data){
+//         var weatherInfo = JSON.parse(data);
+//         console.log(weatherInfo);
+//         console.log(weatherInfo.main.temp);
+//         var weather = weatherInfo.weather[0].main;
+//         var temp= weatherInfo.main.temp;
+//         var place= weatherInfo.name;
+//         var icon= weatherInfo.weather[0].icon;
+//         console.log("icon:" +icon);
+//         response.write("<h1> Weather in "+ place+" is " + weather+"</h1>");
+//         //response.write("<h1> Weather in Pakistan is " + weather+"</h1>");
+//         response.write("<img src='http://openweathermap.org/img/wn/"+icon+"@2x.png'></img> \nThe temperature is "+temp +" degree celcius");
+//         response.send();
+//     });
+// });
